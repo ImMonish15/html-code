@@ -1,0 +1,22 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="code.css"></head>
+<body>
+<div class="container">
+<div class="left"><label>HTML</label><textarea id="html" onkeyup="run()"></textarea>
+<label>css</label><textarea id="css" onkeyup="run()"></textarea>
+<label>js</label><textarea id="js" onkeyup="run()"></textarea></div>
+<div class="right"><label>output</label>
+<iframe id="output"></iframe>
+</div>
+<script>
+function run(){
+let html=document.getElementById("html").value;
+let css=document.getElementById("css").value;
+let js=document.getElementById("js").value;
+let output=document.getElementById("output");
+output.contentDocument.body.innerHTML=html+"<style>"+css+"</style>";
+output.contentWindow.eval(js);
+
+
+}
+</script>
+</body></html>
